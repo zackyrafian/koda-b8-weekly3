@@ -1,0 +1,145 @@
+[
+  {
+    "id": "food-001",
+    "name": "Ricebox Sei Sapi Rendang",
+    "description": "Nasi + Krispy Kangkung + Sei Sapi Rendang Regular",
+    "category": {
+      "id": 1,
+      "name": "food",
+      "display_name": "Makanan"
+    },
+    "price": 52900
+  },
+  {
+    "id": "food-002",
+    "name": "Ricebox Sei Ayam Rendang",
+    "description": "Nasi + Krispy Kangkung + Sei Ayam Rendang Regular",
+    "category": {
+      "id": 1,
+      "name": "food",
+      "display_name": "Makanan"
+    },
+    "price": 42900
+  },
+  {
+    "id": "food-003",
+    "name": "Ricebox Sei Campur Rendang",
+    "description": "Nasi + Krispy Kangkung + Campur Rendang Regular",
+    "category": {
+      "id": 1,
+      "name": "food",
+      "display_name": "Makanan"
+    },
+    "price": 49900
+  },
+  {
+    "id": "food-004",
+    "name": "Ricebox Sei Ayam Regular",
+    "description": "Nasi + Krispy Kangkung + Sei Ayam Regular",
+    "category": {
+      "id": 1,
+      "name": "food",
+      "display_name": "Makanan"
+    },
+    "price": 37900
+  },
+  {
+    "id": "food-005",
+    "name": "Ricebox Sei Sapi Regular",
+    "description": "Nasi + Krispy Kangkung + Sei Sapi Regular",
+    "category": {
+      "id": 1,
+      "name": "food",
+      "display_name": "Makanan"
+    },
+    "price": 47900
+  },
+  {
+    "id": "drink-001",
+    "name": "Es Teh Celoteh",
+    "description": "Es Teh Celoteh",
+    "category": {
+      "id": 2,
+      "name": "drink",
+      "display_name": "Minuman"
+    },
+    "price": 10000
+  },
+  {
+    "id": "drink-002",
+    "name": "Es Teh Lemon",
+    "description": "Es Teh Lemon",
+    "category": {
+      "id": 2,
+      "name": "drink",
+      "display_name": "Minuman"
+    },
+    "price": 11500
+  },
+  {
+    "id": "drink-003",
+    "name": "Es Teh Seireh",
+    "description": "Es Teh Seireh",
+    "category": {
+      "id": 2,
+      "name": "drink",
+      "display_name": "Minuman"
+    },
+    "price": 13000
+  },
+  {
+    "id": "drink-004",
+    "name": "Es Cokelat",
+    "description": "Es Cokelat",
+    "category": {
+      "id": 2,
+      "name": "drink",
+      "display_name": "Minuman"
+    },
+    "price": 15000
+  },
+  {
+    "id": "sidedisk-001",
+    "name": "Shrimp Roll",
+    "description": "Shrimp Roll Isi 3 pcs",
+    "category": {
+      "id": 3,
+      "name": "sidedisk",
+      "display_name": "Side Disk"
+    },
+    "price": 19900
+  },
+  {
+    "id": "sidedisk-002",
+    "name": "Chicken Ball",
+    "description": "Chicken Ball Isi 3 pcs",
+    "category": {
+      "id": 3,
+      "name": "sidedisk",
+      "display_name": "Side Disk"
+    },
+    "price": 19900
+  },
+  {
+    "id": "sidedisk-003",
+    "name": "Bakso Goreng",
+    "description": "Bakso Goreng Isi 3 pcs",
+    "category": {
+      "id": 3,
+      "name": "sidedisk",
+      "display_name": "Side Disk"
+    },
+    "price": 19900
+  },
+  {
+    "id": "sidedisk-004",
+    "name": "Egg Roll",
+    "description": "Egg Roll Isi 3 pcs",
+    "category": {
+      "id": 3,
+      "name": "sidedisk",
+      "display_name": "Side Disk"
+    },
+    "price": 19900
+  }
+]
