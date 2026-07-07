@@ -1,0 +1,17 @@
+[
+  {
+    "id": 1,
+    "name": "food",
+    "display_name": "Makanan"
+  },
+  {
+    "id": 2,
+    "name": "drink",
+    "display_name": "Minuman"
+  },
+  {
+    "id": 3,
+    "name": "sidedisk",
+    "display_name": "Side Disk"
+  }
+]
