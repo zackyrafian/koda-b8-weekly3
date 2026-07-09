@@ -10,6 +10,13 @@ import (
 
 )
 
+type order []struct { 
+  product domain.Product
+  quantity int
+}
+
+var orderList [] domain.Product
+
 func getProductAll() []domain.Product { 
   productJson, err := os.Open("../shared/data/product.json")
   if err != nil { 
@@ -57,9 +64,26 @@ func CategorySection() {
   fmt.Print("\nChoose Menu: ")
   var question int 
   fmt.Scan(&question)
-  product := getProductByCategory(category[question - 1].ID)
-  for i ,prod := range product { 
-    fmt.Printf("%d. %s %d\n", i + 1, prod.Name, prod.Price)
+  productList(category[question - 1].ID)
+}
+
+func productList(Id int) { 
+  product := getProductByCategory(Id)
+  utils.Clear()
+  fmt.Printf("Sei Indonesia Menu %s\n\n", product[0].Category.DisplayName)
+
+  for { 
+    for i ,prod := range product { 
+      fmt.Printf("%d. %s %d\n", i + 1, prod.Name, prod.Price)
+    }
+    var question int 
+    if question == 0 { 
+      defer MainMenu()
+    }
+    fmt.Scan(&question)
+    fmt.Print(product[question - 1])
+    orderList = append(orderList, product[question - 1])
+    fmt.Print(orderList)
   }
 }
 
