@@ -13,3 +13,9 @@ type Product struct {
   Category Category `json:"category"`
   Price int `json:"price"`
 }
+
+type OrderItem struct {
+    Product  Product `json:"product"`
+    Quantity int     `json:"quantity"`
+    Total    int     `json:"total"`
+}
