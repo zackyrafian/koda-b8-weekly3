@@ -7,15 +7,16 @@ import (
 	"os"
 	"seindonesia/internal/domain"
 	"seindonesia/shared/utils"
-
+	"strconv"
 )
 
-type order []struct { 
-  product domain.Product
-  quantity int
+type OrderItem struct { 
+  Product domain.Product
+  Quantity int
+  Total int
 }
 
-var orderList [] domain.Product
+var orderList []OrderItem
 
 func getProductAll() []domain.Product { 
   productJson, err := os.Open("../shared/data/product.json")
@@ -70,26 +71,61 @@ func CategorySection() {
 func productList(Id int) { 
   product := getProductByCategory(Id)
   utils.Clear()
-  fmt.Printf("Sei Indonesia Menu %s\n\n", product[0].Category.DisplayName)
-
   for { 
+    fmt.Printf("Sei Indonesia Menu %s\n\n", product[0].Category.DisplayName)
+    if len(orderList) > 0 { 
+      fmt.Printf("Berhasil Menambahkan %s\n", orderList[len(orderList) - 1].Product.Name)
+    }
     for i ,prod := range product { 
       fmt.Printf("%d. %s %d\n", i + 1, prod.Name, prod.Price)
     }
-    var question int 
-    if question == 0 { 
-      defer MainMenu()
-    }
+
+    fmt.Print("\nChoose Menu: ")
+    var question string 
+    var quantity int
+
     fmt.Scan(&question)
-    fmt.Print(product[question - 1])
-    orderList = append(orderList, product[question - 1])
+    num, err := strconv.Atoi(question)
+    if err != nil {
+        fmt.Println("Input tidak valid")
+        continue
+    }
+
+    if num == 0 {
+        main()
+        return
+    }
+    
+    if num > len(product) || num < 1 {
+        continue
+    }
+    
+    selected := product[num-1]
+    fmt.Printf("\nQuantity %s: ", selected.Name)
+    fmt.Scan(&quantity)
+    
+    fmt.Print(product[num - 1])
+    orderList = append(orderList, OrderItem{
+        Product:  selected,
+        Quantity: quantity,
+        Total:    selected.Price * quantity,
+    })
     fmt.Print(orderList)
+    utils.Clear()
+  }
+}
+
+func CheckoutSection() { 
+  fmt.Print("Checkout\n")
+  for i, order := range orderList { 
+    fmt.Printf("%d. %s %d\n", i + 1, order.Product.Name, order.Product.Price)
   }
 }
 
 func MainMenu() { 
+  utils.Clear()
   fmt.Print("Sei Indonesia\n\n")
-  fmt.Print("1.Check Menu")
+  fmt.Print("1. Check Menu\n2. Checkout")
 
   fmt.Print("\n\nChoose Menu: ")  
   var question string 
@@ -100,8 +136,11 @@ func MainMenu() {
     os.Exit(0)
     case "1": 
     CategorySection()
+    case "2":
+    CheckoutSection() 
   }
 }
+
 
 func main() { 
   MainMenu()
