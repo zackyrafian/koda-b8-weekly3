@@ -32,7 +32,7 @@ func CheckoutSection() {
 
     fmt.Printf("Grand Total: %s\n", utils.FormatIDR(grandTotal))
     fmt.Println("\n1. Back to main menu")
-    fmt.Println("2. Clear cart and continue shopping")
+    fmt.Println("2. Continue Payment")
     
     var choice string
     fmt.Print("\nChoose option: ")
@@ -41,5 +41,9 @@ func CheckoutSection() {
     switch choice {
     case "2":
         service.ClearOrders()
+        utils.Clear()
+        fmt.Print("Pembayaran Berhasil\n")
+        fmt.Print("Enter untuk kembali ke menu utama... ")
+        fmt.Scanln()
     }
 }
