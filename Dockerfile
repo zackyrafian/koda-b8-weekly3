@@ -3,7 +3,7 @@ FROM golang:alpine AS builder
 WORKDIR /app
 COPY . .
 RUN go mod tidy
-RUN go build -o program main.go
+RUN go build -o program cmd/main.go
 
 FROM alpine:latest
 WORKDIR /app
