@@ -40,9 +40,30 @@ func CheckoutSection() {
     
     switch choice {
     case "2":
-        service.ClearOrders()
         utils.Clear()
-        fmt.Print("Pembayaran Berhasil\n")
+        var paymentAmount int 
+        for { 
+          fmt.Print("Pembayaran\n\n")
+          fmt.Printf("Total Pesanan: %s\n", utils.FormatIDR(grandTotal))
+          fmt.Print("Masukan Nominal Uang: ")
+          fmt.Scan(&paymentAmount)
+
+          if paymentAmount < grandTotal { 
+            fmt.Print("\nUang tidak cukup")
+            fmt.Printf("Kurang: %s\n\n", utils.FormatIDR(grandTotal-paymentAmount))
+            continue
+          }
+          break
+        }
+
+        change := paymentAmount-grandTotal
+        utils.Clear()
+        fmt.Print("Pembayaran Berhasil\n\n")
+        fmt.Printf("Total Pesanan : %s\n", utils.FormatIDR(grandTotal))
+        fmt.Printf("Uang Bayar    : %s\n", utils.FormatIDR(paymentAmount))
+        fmt.Printf("Kembalian     : %s\n", utils.FormatIDR(change))
+    
+        service.ClearOrders()
         fmt.Print("Enter untuk kembali ke menu utama... ")
         fmt.Scanln()
     }
